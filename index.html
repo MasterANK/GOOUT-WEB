@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pwease🥺</title>
+    <style>
+        html , body{
+            background-color: #d2bcbc;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .center{
+            display: flex;
+            min-height: 100%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #CAT{
+            max-width: 150px;
+            max-height: 150px;
+        }
+        button {
+            border: none;
+            border-radius: 25%; /* Make the button round */
+            background-color: #007bff; /* Button background color */
+            color: #fff; /* Text color */
+            padding: 15px 25px; /* Adjust padding as needed */
+            margin: 5px;
+            font-size: 16px; /* Adjust font size as needed */
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow */
+            min-width: 50px;
+            min-height: 30px;
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+    <div>
+        <img id="CAT" src="https://media.tenor.com/2csFlkJ3TyAAAAAi/tkthao219-bubududu.gif">
+    </div>
+    <p id="warning">Will you go Out with me?</p>
+    <div>
+        <button id="yes"
+        onclick="success()">
+            YES
+        </button>
+        <button style="position: absolute;" 
+        id="no" 
+        onmouseover="no_hover()" onclick="failed()">
+            NO
+        </button>
+    </div>
+    <div>
+    <script>
+        var cat_gif = document.getElementById("CAT");
+        var no_btn = document.getElementById("no");
+        var warning = document.getElementById("warning");
+        var count = 0;
+
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        function no_hover(){
+            count++;
+            var randomX = Math.floor(Math.random() * screenWidth);
+            var randomY = Math.floor(Math.random() * screenHeight);
+            if (count < 7){
+                no_btn.style.left = randomX + "px";
+                no_btn.style.top = randomY + "px";
+            }
+            console.log(count);
+            revert()
+        }
+        function revert(){
+            if (count <= 2){
+                warning.innerHTML = "Dont pls 🥺🥺";
+                cat_gif.src = "https://media.tenor.com/o9ggj6rtNQAAAAAM/cat-worried-wobble.gif"
+            } else if (count <= 5){
+                cat_gif.src = "https://media.tenor.com/yNMGjXsoYGUAAAAM/cat-cats.gif"
+                warning.innerHTML = "PLS🥺🥺";
+            } else if (count <= 7){
+                cat_gif.src = "https://media1.tenor.com/m/t7_iTN0iYekAAAAd/sad-sad-cat.gif"
+                warning.innerHTML = "Last Chance 🥹";
+            }
+        }
+        function failed(){
+            window.location.href = "fail.html";
+        }
+        function success(){
+            window.location.href = "Success.html";
+        }
+    </script>
+</body>
+</html>
